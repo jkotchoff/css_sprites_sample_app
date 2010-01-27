@@ -1,0 +1,37 @@
+<h1>CSS Sprites Example</h1>
+
+<p>
+<b>Image files rendered using CSS-Sprites in rails:</b><br/>
+<!--
+<%= image_tag("/images/weather_clouds.png") %> clouds<br/>
+<%= image_tag("/images/weather_cloudy.png") %> cloudy<br/>
+<%= image_tag("/images/weather_lightning.png") %> lightning<br/>
+<%= image_tag("/images/weather_rain.png") %> rain<br/>
+<%= image_tag("/images/weather_snow.png") %> snow<br/>
+<%= image_tag("/images/weather_sun.png") %> sun<br/>
+-->
+<%= image_tag("/images/sprite_icons.png", :sprite => "weather_clouds") %> clouds<br/>
+<%= image_tag("/images/sprite_icons.png", :sprite => "weather_cloudy") %> cloudy<br/>
+<%= image_tag("/images/sprite_icons.png", :sprite => "weather_lightning") %> lightning<br/>
+<%= image_tag("/images/sprite_icons.png", :sprite => "weather_rain") %> rain<br/>
+<%= image_tag("/images/sprite_icons.png", :sprite => "weather_snow") %> snow<br/>
+<%= image_tag("/images/sprite_icons.png", :sprite => "weather_sun") %> sun<br/>
+</p>
+
+<p>The sprite file for the above icons (check the HTML source) looks like this:<br/>
+<%= image_tag("/images/sprite_icons.png") %>
+</p>
+
+<p>By combining multiple image icons into a single 'sprite' file, you can use CSS offsets to render a particular icon and save the http overhead of sending lots of small files to the client web browser.</p>
+<p>This is a useful technique for speeding up page rendering times (it sped up our performance significantly on <%= link_to "http://www.insiderpages.com" %> and <%= link_to "http://www.funnyordie.com" %>)
+</p>
+<p>For a good overview of techniques like this to speed up your site, check out: <%= link_to "yahoo's performance tips", "http://developer.yahoo.com/performance/rules.html" %></p>
+
+<p>The interesting source in this rails project is:<br/>
+<b>#{RAILS_ROOT}/config/css_sprite_images.yml</b> &amp;<br/>
+<b>#{RAILS_ROOT}/config/initializers/monkey_patch_image_sprites.rb</b><br/>
+</p>
+
+<p>The CSS Sprite image was generated using: <%= link_to "http://spritegen.website-performance.org/" %>
+
+<p><em>Jason Kotchoff - <%= link_to "http://www.kangarooit.com" %></em></p>
